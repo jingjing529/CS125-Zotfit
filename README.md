@@ -67,4 +67,4 @@ npx expo start
 
 ### Note
 
-lkt user is temporary user from Jingjing's VScode, Jingjing just figured out that her pushes are Anonymous
+lkt user is temporary user from Jingjing's VScode, Jingjing just figured out that her pushes are Anonymous.
