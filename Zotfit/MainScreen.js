@@ -1,13 +1,15 @@
 // MainScreen.js
 
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 
-export default function MainScreen() {
+export default function MainScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Main Screen</Text>
-      {/* Add your main screen content here */}
+        <Button
+            title="Go Back to Cover Page"
+            onPress={() => navigation.navigate('Home')} // Navigate to the Home (cover page)
+        />
     </View>
   );
 }
