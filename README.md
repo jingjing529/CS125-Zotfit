@@ -23,8 +23,8 @@ nvm install v20.11.0
 Install the required dependencies for the app:
 
 ```bash
-npm install @react-native-community/masked-view react-native-safe-area-context
-npm install react-native-gesture-handler
+cd Zotfit
+npm install
 ```
 
 ### iOS Specific Configuration
