@@ -68,3 +68,21 @@ npx expo start
 ### Note
 
 lkt user is temporary user from Jingjing's VScode, Jingjing just figured out that her pushes are anonymous.
+
+### Subpart
+#### How `menuGetter` Works
+
+The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the latest menu information for a specified dining hall and meal period (e.g., breakfast, lunch, dinner). It organizes this information into a user-friendly format, allowing Zotfit users to view meal options, nutritional information, and allergen warnings directly within the app.
+
+#### Using `menuGetter` in Zotfit
+
+1. **Setting Up**: Ensure your development environment is set up according to the Zotfit app requirements outlined above.
+2. **Integration**: To use the `menuGetter` function :
+   - Import the function into the relevant module of your Zotfit app.
+   - Decide on the parameters you wish to query (dining location, date, meal period).
+3. **Fetching Menu Data**:
+   - Call `menuGetter` with the desired parameters. For example, to fetch the dinner menu for Brandywine on the current date:
+     ```
+     menu_items = menuGetter("daily", "3314", "107")
+     ```
+   - This call returns a list of menu items, each item containing details like name, description, allergens, calories, and serving size.
