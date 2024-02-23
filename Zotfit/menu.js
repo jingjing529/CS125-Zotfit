@@ -6,6 +6,7 @@ const Menu = ({ navigation, route }) => {
   const [selectedFoods, setSelectedFoods] = useState([]);
   const { userInfo } = route.params;
 
+  console.log('User Info:', userInfo);
   useEffect(() => {
     // Fetch the content of menu_items.txt when the component mounts
     fetchMenuItems();
