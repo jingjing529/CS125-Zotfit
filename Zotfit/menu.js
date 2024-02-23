@@ -1,25 +1,102 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView } from 'react-native';
 
 const Menu = ({ navigation }) => {
+  const [menuItems, setMenuItems] = useState('');
+  const [selectedFoods, setSelectedFoods] = useState([]);
+
+  useEffect(() => {
+    // Fetch the content of menu_items.txt when the component mounts
+    fetchMenuItems();
+  }, []);
+
+  const fetchMenuItems = async () => {
+    try {
+      // Fetch menu items from API or local file
+      const response = await fetch('/Users/wangjingjing/CS125-Zotfit/menu_items.txt');
+      const menuItemsContent = await response.text();
+      setMenuItems(menuItemsContent);
+    } catch (error) {
+      console.error('Error fetching menu items:', error);
+    }
+  };
+
+  const handleFoodClick = (food) => {
+    setSelectedFoods(prevSelectedFoods => [...prevSelectedFoods, food]);
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.menuText}>Menu</Text>
-      <Button title="Go to Recommendation" onPress={() => navigation.navigate('Recommendation')} />
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.header}>Today's Menu</Text>
+      <View style={styles.selectedFoodsContainer}>
+        <Text style={styles.selectedFoodsHeader}>Food you consumed today:</Text>
+        {selectedFoods.map((food, index) => (
+          <Text key={index}>{food}</Text>
+        ))}
+      </View>
+      <View style={styles.menuItemsContainer}>
+        {menuItems.split('\n').map((line, index) => {
+          const [food, calories] = line.split(' + ');
+          return (
+            <TouchableOpacity key={index} onPress={() => handleFoodClick(food)} style={styles.foodItem}>
+              <Text style={styles.foodName}>{food}</Text>
+              <Text style={styles.foodCalories}>{calories} Calories</Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+      <Button title="Start Generating Recommendations" onPress={() => navigation.navigate('Recommendation')} />
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexGrow: 1,
     backgroundColor: '#ffffff',
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+    alignItems: 'center',
   },
-  menuText: {
-    fontSize: 24,
+  header: {
+    fontSize: 28,
     fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  selectedFoodsContainer: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    marginBottom: 20,
+    width: '100%',
+  },
+  selectedFoodsHeader: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  menuItemsContainer: {
+    width: '100%',
+  },
+  foodItem: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 15,
+    marginBottom: 10,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#f9f9f9',
+  },
+  foodName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  foodCalories: {
+    fontSize: 14,
+    color: '#666',
   },
 });
 
