@@ -90,3 +90,20 @@ The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the
      menu_items = menuGetter("daily", "3314", "107")
      ```
    - This call returns a list of menu items, each item containing details like name, description, allergens, calories, and serving size.
+
+#### How `recommendation` Works
+The `recommendation` module interacts with the OpenAI API to send the user's personal information and meal consumed today from the UCI dining hall. It fetches the recommendation into a user-friendly format, allowing Zotfit users to view their personal health recommendation directly within the app.
+
+#### Using `recommendation` in Zotfit
+
+1. **Setting Up**: Ensure your development environment is set up according to the Zotfit app requirements outlined above.
+2. **Integration**: To use the `recommendation` function :
+   - Simply update the API key with from own OpenAI account.
+   ```
+   const openai = new OpenAI({
+        apiKey: "" // Add your OpenAI API key here
+   });
+   ```
+3. **Fetching Recommendation Data**:
+   - Call `recommendation` with the user's personal information and selectedFoods.
+   - This call returns a string of personal recommendations.
