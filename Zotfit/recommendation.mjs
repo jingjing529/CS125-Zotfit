@@ -45,7 +45,7 @@ const Recommendation = ({ navigation, route }) => {
                         Pork Sausage Links + 240
                         Turkey Sausage Patty + 90
                         Please follow this format: 
-                        Hello <user name>, I see you have consumed <foods> today. Based on your energy information, I recommend you to have <food name> ----- <calories> calories (with bullet points) for your next meal. This is a good choice because <reason>. You should also do some <sports> (use bullet points)today, <reasons>.
+                        Hello <user name>. Based on your energy information and food consumed today, I recommend you to have <food name> ----- <calories> calories (with bullet points) for your next meal. This is a good choice because <reason>. You should also do some <sports> (use bullet points)today, <reasons>.
                         `;
         const completion = await openai.chat.completions.create({
           model: "gpt-3.5-turbo",
