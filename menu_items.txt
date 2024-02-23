@@ -9,19 +9,19 @@ Cinnamon Brown Sugar Granola (6  fl oz) + 370
 Old Fashioned Oatmeal (6  fl oz) + 110
 Overnight Apples 'N' Oats (6  fl oz) + 190
 Overnight Strawberry Oats + 150
-Whipped Butter + None
-Whipped Cream Cheese + None
+Whipped Butter + 0
+Whipped Cream Cheese + 0
 French Toast + 1810
 Scrambled Eggs + 180
 Turmeric Tofu Scramble + 220
  Fresh Squeezed Orange Juice + 45
-Cottage Cheese + None
-Nonfat Strawberry Yogurt + None
-Nonfat Vanilla Greek Yogurt + None
-Nonfat Vanilla Yogurt + None
+Cottage Cheese + 0
+Nonfat Strawberry Yogurt + 0
+Nonfat Vanilla Greek Yogurt + 0
+Nonfat Vanilla Yogurt + 0
 Fresh Berries Cup + 30
-Orange Wedges + None
-Raisins + None
+Orange Wedges + 0
+Raisins + 0
 Fresh Orange + 45
 Lyonnaise Potatoes + 120
 Pork Sausage Links + 240
