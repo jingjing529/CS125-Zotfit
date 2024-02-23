@@ -51,5 +51,6 @@ def menuGetter(mode, location, period, date=datetime.now().strftime('%m/%d/%Y'))
 # Example usage
 menu_items = menuGetter("daily", "3314", "108")
 if menu_items:
-    for item in menu_items:
-        print(item['Name'], "+", item['Calories'])
+    with open("menu_items.txt", "w") as file:
+        for item in menu_items:
+            file.write(f"{item['Name']} + {item['Calories']}\n")
