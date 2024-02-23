@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView } from 'react-native';
 
 const Menu = ({ navigation, route }) => {
-  const [menuItems, setMenuItems] = useState('');
+  const [menuItems, setMenuItems] = useState([]);
   const [selectedFoods, setSelectedFoods] = useState([]);
   const { userInfo } = route.params;
 
-  console.log('User Info:', userInfo);
+  // Calculate total calories consumed
+  const totalCaloriesConsumed = selectedFoods.reduce((totalCalories, food) => {
+    const [_, calories] = food.split(' + ');
+    return totalCalories + parseInt(calories, 10);
+  }, 0);
+
   useEffect(() => {
     // Fetch the content of menu_items.txt when the component mounts
     fetchMenuItems();
@@ -17,7 +22,7 @@ const Menu = ({ navigation, route }) => {
       // Fetch menu items from API or local file
       const response = await fetch('/Users/wangjingjing/CS125-Zotfit/menu_items.txt');
       const menuItemsContent = await response.text();
-      setMenuItems(menuItemsContent);
+      setMenuItems(menuItemsContent.split('\n').map(line => line.trim()).filter(line => line !== ''));
     } catch (error) {
       console.error('Error fetching menu items:', error);
     }
@@ -32,15 +37,19 @@ const Menu = ({ navigation, route }) => {
       <Text style={styles.header}>Today's Menu</Text>
       <View style={styles.selectedFoodsContainer}>
         <Text style={styles.selectedFoodsHeader}>Food you consumed today:</Text>
-        {selectedFoods.map((food, index) => (
-          <Text key={index}>{food}</Text>
+        {selectedFoods.filter(food => food.trim() !== '').map((food, index) => (
+          <View key={index} style={styles.selectedFoodItem}>
+            <Text>{food.split(' + ')[0]}</Text>
+            <Text>{food.split(' + ')[1].trim()}</Text>
+          </View>
         ))}
+        <Text style={styles.totalCalories}>Total Calories Consumed: {totalCaloriesConsumed}</Text>
       </View>
       <View style={styles.menuItemsContainer}>
-        {menuItems.split('\n').map((line, index) => {
-          const [food, calories] = line.split(' + ');
+        {menuItems.map((item, index) => {
+          const [food, calories] = item.split(' + ');
           return (
-            <TouchableOpacity key={index} onPress={() => handleFoodClick(food)} style={styles.foodItem}>
+            <TouchableOpacity key={index} onPress={() => handleFoodClick(item)} style={styles.foodItem}>
               <Text style={styles.foodName}>{food}</Text>
               <Text style={styles.foodCalories}>{calories} Calories</Text>
             </TouchableOpacity>
@@ -77,6 +86,24 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
   },
+  selectedFoodItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 5,
+  },
+  foodName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  foodCalories: {
+    fontSize: 14,
+    color: '#666',
+  },
+  totalCalories: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
   menuItemsContainer: {
     width: '100%',
   },
@@ -91,14 +118,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#f9f9f9',
-  },
-  foodName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  foodCalories: {
-    fontSize: 14,
-    color: '#666',
   },
 });
 
