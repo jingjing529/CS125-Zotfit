@@ -62,7 +62,7 @@ export default function InfoPage({ route, navigation }) {
         )}
         {/* Button to navigate to Menu */}
         <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Menu')}>
-          <Text style={styles.menuButtonText}>Go to Menu</Text>
+          <Text style={styles.menuButtonText}>Select Food Consumed</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
