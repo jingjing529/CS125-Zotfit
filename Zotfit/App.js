@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './MainScreen';
 import InfoPage from './InfoPage';
 import Menu from './menu';
-import Recommendation from './recommendation';
+import Recommendation from './recommendation.mjs';
 // Import the UCI Anteaters logo
 import UciLogo from './assets/Anteater-Chief.png';
 

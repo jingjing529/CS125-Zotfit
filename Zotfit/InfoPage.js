@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; // Import icons from Expo vector icons library
 
 export default function InfoPage({ route, navigation }) {
@@ -9,7 +9,7 @@ export default function InfoPage({ route, navigation }) {
   const otherInformation = "Other information will be displayed here.";
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('Main')}>
           <MaterialIcons name="arrow-back" size={24} color="#000" />
@@ -22,19 +22,24 @@ export default function InfoPage({ route, navigation }) {
         <Text>Gender: {gender}</Text>
         <Text>Height: {height}</Text>
         <Text>Weight: {weight}</Text>
-        {/* Display other information */}
+        {/* Placeholder for other information */}
         <Text>{otherInformation}</Text>
+        {/* Button to navigate to Menu */}
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Menu', { userInfo: { name, age, gender, height, weight } })}>
+          <Text style={styles.menuButtonText}>Select Food Consumed</Text>
+        </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#ffffff',
+    paddingVertical: 20,
   },
   headerContainer: {
     position: 'absolute',
@@ -52,5 +57,27 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     padding: 20,
     borderRadius: 10,
+    width: '90%', // Adjust the width as needed
+  },
+  recommendationHeading: {
+    marginTop: 20,
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+  recommendationText: {
+    marginTop: 10,
+    fontSize: 16,
+  },
+  menuButton: {
+    marginTop: 20,
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+  },
+  menuButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
+    textAlign: 'center',
   },
 });

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView } from 'react-native';
 
-const Menu = ({ navigation }) => {
+const Menu = ({ navigation, route }) => {
   const [menuItems, setMenuItems] = useState('');
   const [selectedFoods, setSelectedFoods] = useState([]);
+  const { userInfo } = route.params;
 
   useEffect(() => {
     // Fetch the content of menu_items.txt when the component mounts
@@ -45,7 +46,7 @@ const Menu = ({ navigation }) => {
           );
         })}
       </View>
-      <Button title="Start Generating Recommendations" onPress={() => navigation.navigate('Recommendation')} />
+      <Button title="Start Generating Recommendations" onPress={() => navigation.navigate('Recommendation', {selectedFoods, userInfo})} />
     </ScrollView>
   );
 };
