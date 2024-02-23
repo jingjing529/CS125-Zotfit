@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './MainScreen';
 import InfoPage from './InfoPage';
+import Menu from './menu';
+import Recommendation from './recommendation';
 // Import the UCI Anteaters logo
 import UciLogo from './assets/Anteater-Chief.png';
 
@@ -16,6 +18,8 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Main" component={MainScreen} />
         <Stack.Screen name="InfoPage" component={InfoPage} />
+        <Stack.Screen name="Menu" component={Menu} />
+        <Stack.Screen name="Recommendation" component={Recommendation} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -62,6 +62,10 @@ cd ..
 To start the development server:
 
 ```bash
+nmp install
+```
+
+```bash
 npx expo start
 ```
 

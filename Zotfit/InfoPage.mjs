@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { View, Button, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; // Import icons from Expo vector icons library
 import OpenAI from 'openai';
 
@@ -52,7 +52,7 @@ export default function InfoPage({ route, navigation }) {
         <Text>Height: {height}</Text>
         <Text>Weight: {weight}</Text>
         {/* Placeholder for other information */}
-        <Text>Other information will be displayed here.</Text>
+        <Text>{otherInformation}</Text>
         {/* Display the recommendation if it exists */}
         {recommendation && (
           <>
@@ -60,6 +60,10 @@ export default function InfoPage({ route, navigation }) {
             <Text style={styles.recommendationText}>{recommendation}</Text>
           </>
         )}
+        {/* Button to navigate to Menu */}
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Menu')}>
+          <Text style={styles.menuButtonText}>Go to Menu</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -99,5 +103,17 @@ const styles = StyleSheet.create({
   recommendationText: {
     marginTop: 10,
     fontSize: 16,
+  },
+  menuButton: {
+    marginTop: 20,
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+  },
+  menuButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
+    textAlign: 'center',
   },
 });
