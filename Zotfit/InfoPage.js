@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; // Import icons from Expo vector icons library
 
 export default function InfoPage({ route, navigation }) {
   const { name, age, gender, height, weight } = route.params;
 
-  // Placeholder for other information such as calories input, etc.
-  const otherInformation = "Other information will be displayed here.";
+  const caloriesBurned = 190;
+  const totalSteps = 11107;
+  const sleepingHours = "8 h 13 min";
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -15,19 +16,50 @@ export default function InfoPage({ route, navigation }) {
           <MaterialIcons name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
       </View>
-      <Text style={styles.heading}>User Profile</Text>
-      <View style={styles.userInfo}>
-        <Text>Name: {name}</Text>
-        <Text>Age: {age}</Text>
-        <Text>Gender: {gender}</Text>
-        <Text>Height: {height}</Text>
-        <Text>Weight: {weight}</Text>
-        {/* Placeholder for other information */}
-        <Text>{otherInformation}</Text>
-        {/* Button to navigate to Menu */}
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Menu', { userInfo: { name, age, gender, height, weight } })}>
-          <Text style={styles.menuButtonText}>Select Food Consumed</Text>
-        </TouchableOpacity>
+      <View style={styles.profileContainer}>
+        <Image
+          source={require('./assets/anteater.png')}
+          style={styles.avatar}
+        />
+        <Text style={styles.heading}>User Profile</Text>
+        <View style={styles.userInfo}>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoTitle}>Name:</Text>
+            <Text style={styles.infoText}>{name}</Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoTitle}>Age:</Text>
+            <Text style={styles.infoText}>{age}</Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoTitle}>Gender:</Text>
+            <Text style={styles.infoText}>{gender}</Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoTitle}>Height:</Text>
+            <Text style={styles.infoText}>{height}</Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoTitle}>Weight:</Text>
+            <Text style={styles.infoText}>{weight}</Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoTitle}>Calories Burned:</Text>
+            <Text style={styles.infoText}>{caloriesBurned}</Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoTitle}>Total Steps:</Text>
+            <Text style={styles.infoText}>{totalSteps}</Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoTitle}>Sleeping Hours:</Text>
+            <Text style={styles.infoText}>{sleepingHours}</Text>
+          </View>
+          {/* Button to navigate to Menu */}
+          <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Menu', { userInfo: { name, age, gender, height, weight } })}>
+            <Text style={styles.menuButtonText}>Select Food Consumed</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );
@@ -47,6 +79,15 @@ const styles = StyleSheet.create({
     left: 10,
     zIndex: 1,
   },
+  profileContainer: {
+    alignItems: 'center',
+  },
+  avatar: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    marginBottom: 20,
+  },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -59,14 +100,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: '90%', // Adjust the width as needed
   },
-  recommendationHeading: {
-    marginTop: 20,
-    fontWeight: 'bold',
-    fontSize: 18,
+  infoRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 5,
   },
-  recommendationText: {
-    marginTop: 10,
-    fontSize: 16,
+  infoTitle: {
+    fontWeight: 'bold',
+    marginRight: 10,
+  },
+  infoText: {
+    flex: 1,
+    textAlign: 'right',
   },
   menuButton: {
     marginTop: 20,
