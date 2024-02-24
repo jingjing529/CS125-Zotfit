@@ -1,28 +1,470 @@
-Assorted Donuts + 90
-Blueberry Muffin + 340
-Blueberry Scone + 150
-Breakfast Muffin + 400
-Cinnamon Roll + 130
-Danish Pastry + 120
-Vegan Zucchini Muffin + 220
-Cinnamon Brown Sugar Granola (6  fl oz) + 370
-Old Fashioned Oatmeal (6  fl oz) + 110
-Overnight Apples 'N' Oats (6  fl oz) + 190
-Overnight Strawberry Oats + 150
-Whipped Butter + 0
-Whipped Cream Cheese + 0
-French Toast + 1810
-Scrambled Eggs + 180
-Turmeric Tofu Scramble + 220
- Fresh Squeezed Orange Juice + 45
-Cottage Cheese + 0
-Nonfat Strawberry Yogurt + 0
-Nonfat Vanilla Greek Yogurt + 0
-Nonfat Vanilla Yogurt + 0
-Fresh Berries Cup + 30
-Orange Wedges + 0
-Raisins + 0
-Fresh Orange + 45
-Lyonnaise Potatoes + 120
-Pork Sausage Links + 240
-Turkey Sausage Patty + 90
+Italian Beef Meatball , 45 ,  b 
+Broccoli & Cheddar Strata , 240 ,  b 
+Chocolate Chip Cookie , 160 ,  b 
+Tofu-Potato Hash , 120 ,  b 
+O'Brien Potatoes , 140 ,  b 
+French Toast Sticks , None ,  b 
+Gardenburger Black Bean Burger (1  each) , 110 ,  b 
+Vegan Zucchini Bread , 270 ,  b 
+Sliced Onions , None ,  b 
+Apple Cinnamon Muffin , 300 ,  b 
+Double Chocolate Chip Mini Muffin , 120 ,  b 
+Turkey Sausage Link , 110 ,  b 
+Oatmeal Raisin Cookie , 120 ,  b 
+Classic Cheese Pizza , 340 ,  b 
+Fire-Roasted Salsa , 15 ,  b 
+Grilled Black Bean Burger , 280 ,  b 
+Vanilla Iced Donut with Sprinkles , 460 ,  b 
+Vegetarian Refried Beans , 70 ,  b 
+Classic Hot Dog , 190 ,  b 
+Turmeric Tofu Scramble , 220 ,  b 
+Green Leaf Lettuce , None ,  b 
+Donut Bites , 210 ,  b 
+ Fresh Squeezed Orange Juice , 45 ,  b 
+Fresh Squeezed Orange Juice , None ,  b 
+Bananaberry Mini Muffin , 80 ,  b 
+Whipped Butter , None ,  b 
+Cinnamon Brown Sugar Granola (6  fl oz) , 370 ,  b 
+Sliced Tomatoes , None ,  b 
+Hash Brown Potato Patty , 130 ,  b 
+Fresh Berries Cup , 30 ,  b 
+Three Cheese & Ham Strata , 290 ,  b 
+Lyonnaise Potatoes , 120 ,  b 
+Overnight Apples 'N' Oats (6  fl oz) , 190 ,  b 
+Maple Pecan Donut Bites , 480 ,  b 
+Honey Granola , 110 ,  b 
+Banana-Nut Mini Muffin , 80 ,  b 
+Vegan Chorizo Creole , 180 ,  b 
+Pepperoni Pizza , 370 ,  b 
+Vegetable Medley , 45 ,  b 
+Vegan Chipotle Chicken Taco , 150 ,  b 
+Blueberry Scone , 150 ,  b 
+Turkey Bacon , 120 ,  b 
+Sausage Breakfast Pizza , 460 ,  b 
+Pork Sausage Patty , 180 ,  b 
+Fresh Orange , 45 ,  b 
+Vegan Chorizo Breakfast Taco , 360 ,  b 
+Angus Beef Patty (1  each) , 420 ,  b 
+Danish Pastry , 150 ,  b 
+Cream of Rice (6  fl oz) , 130 ,  b 
+Powdered Sugar Donut , 240 ,  b 
+Crispy Cereal Bar , 160 ,  b 
+Old Fashioned Oatmeal (6  fl oz) , 110 ,  b 
+Crispy Shoestring French Fries , 190 ,  b 
+Strawberry Cream Cheese , None ,  b 
+Alfredo Pesto Casserole , 400 ,  b 
+Cottage Cheese , None ,  b 
+French Toast Sticks , 10 ,  b 
+Cinnamon Roll , 130 ,  b 
+Danish Pastry , 120 ,  b 
+Grilled Chicken Breast , 150 ,  b 
+Chicken Apple Sausage , 150 ,  b 
+Tofu-Potato Hash , 130 ,  b 
+Grilled Vegetable Pizza , 360 ,  b 
+Cinnamon-Sugar Donut , 240 ,  b 
+Crispy Tater Tots , 120 ,  b 
+Salsa Verde , 25 ,  b 
+Chickpea Scramble Breakfast Taco , 230 ,  b 
+Crispy Homestyle French Fries , 140 ,  b 
+Pork Sausage Links , 240 ,  b 
+Sugar Cookie , 120 ,  b 
+Nonfat Strawberry Yogurt , None ,  b 
+Breaded Chicken Breast (1  each) , 260 ,  b 
+American Cheese , None ,  b 
+NEW Chocolate Chip Pasuki , 290 ,  b 
+Pineapple Chunks , None ,  b 
+Horchata , 330 ,  b 
+Overnight Blueberry 'N' Oats , 280 ,  b 
+Penne , 100 ,  b 
+Lettuce , None ,  b 
+Mashed Potatoes , 120 ,  b 
+Strawberry - Peach Smoothie , 370 ,  b 
+Nonfat Vanilla Greek Yogurt , None ,  b 
+Teriyaki Sauce , None ,  b 
+French Toast , 1810 ,  b 
+Turkey Sausage Patty , 90 ,  b 
+Scrambled Eggs , 180 ,  b 
+Cream of Wheat (6  fl oz) , 90 ,  b 
+Cheeseburger , 360 ,  b 
+Breakfast Muffin , 400 ,  b 
+True Balance Carnitas Taco , 210 ,  b 
+Chicken Gravy , 50 ,  b 
+Croissant (1  each) , 290 ,  b 
+Vegan Carrot Spice Cake , 280 ,  b 
+Chicken Teriyaki , 130 ,  b 
+Cheddar Cheese , None ,  b 
+Assorted Donuts , 90 ,  b 
+Vegan Pumpkin muffin , 250 ,  b 
+Scrambled Eggs , 140 ,  b 
+Cantaloupe , None ,  b 
+Pancakes , 260 ,  b 
+Spicy Tofu Vegetable Stir-Fry , 170 ,  b 
+Marinara Sauce (1  fl oz) , 25 ,  b 
+Nonfat Vanilla Yogurt , None ,  b 
+Bacon , 130 ,  b 
+Red Grapes , None ,  b 
+Jasmine Rice , 130 ,  b 
+Cranberry Orange Mini Muffin , 80 ,  b 
+Sliced Red Onions , None ,  b 
+Dill Pickle Slices , None ,  b 
+Crispy Chicken Sandwich , 600 ,  b 
+Whipped Cream Cheese , None ,  b 
+Blueberry Muffin , 340 ,  b 
+Fried Chicken , 430 ,  b 
+Meat Lover's Pizza , 350 ,  b 
+Blueberry-Banana Smoothie , 120 ,  b 
+Iced Cinnamon Roll , 220 ,  b 
+Raisins , None ,  b 
+Chocolate Chip Scone , 170 ,  b 
+Honeydew Melon , None ,  b 
+Hamburger Roll (1  each) , 140 ,  b 
+Overnight Strawberry Oats , 150 ,  b 
+Steamed Fresh Broccoli , 20 ,  b 
+Southwest Ham Breakfast Pizza , 400 ,  b 
+Assorted Muffins , 220 ,  b 
+Cinnamon Streusel Coffee Cake , 290 ,  b 
+Cilantro Lime Rice , 45 ,  b 
+Orange Wedges , None ,  b 
+Vegan Zucchini Muffin , 220 ,  b 
+Cheese Pizza , 380 ,  d 
+Chicken with Cacciatore Sauce , 180 ,  d 
+Brown Rice , 110 ,  d 
+Chik'n Paella , 120 ,  d 
+Basmati Rice , 130 ,  d 
+Grilled Black Bean Burger , 280 ,  d 
+Granny Smith Apple , None ,  d 
+Chicken & Andouille Sausage Gumbo , 430 ,  d 
+Grilled Zucchini Squash , 60 ,  d 
+Tomato Wedges , None ,  d 
+Beef Burrito Bowl , 400 ,  d 
+Jasmine Rice , 130 ,  d 
+Chicken Alfredo Noodle Bowl , 440 ,  d 
+Beef Harissa Rice Bowl , 270 ,  d 
+Sliced Red Onions , None ,  d 
+Dill Pickle Slices , None ,  d 
+Buttered Egg Noodles , 110 ,  d 
+Classic Hot Dog , 190 ,  d 
+Sliced Green Bell Peppers , None ,  d 
+Green Leaf Lettuce , None ,  d 
+BBQ Chicken & Cheddar Sandwich , 530 ,  d 
+NEW Hot Dog Style Pizza , 330 ,  d 
+Baby Spinach , None ,  d 
+Herb Roasted Red Potatoes , 100 ,  d 
+Vegetable Soup (6  fl oz) , 70 ,  d 
+Sliced Tomatoes , None ,  d 
+Couscous , 100 ,  d 
+Pork Chili Verde , 120 ,  d 
+Hamburger Roll (1  each) , 140 ,  d 
+Pico de Gallo (1  fl oz) , 5 ,  d 
+Cilantro-Lime Chicken , 170 ,  d 
+Hamburger , 310 ,  d 
+Black Olives , None ,  d 
+Spanish Rice , 50 ,  d 
+Sweet Potato Coconut Curry , 120 ,  d 
+Cucumbers , None ,  d 
+Classic Grilled Cheese , 320 ,  d 
+Lite Italian Dressing , None ,  d 
+Fried Chicken , 460 ,  d 
+Asian Tofu Noodle Bowl , 180 ,  d 
+Chocolate Chip Cookie , 240 ,  d 
+Sofrito Black Beans & Rice , 120 ,  d 
+ATT MISO GLAZE , 60 ,  d 
+Vegetable Medley , 45 ,  d 
+Grilled Ancho-Lime Chicken , 160 ,  d 
+Szechuan Pork , 190 ,  d 
+Corn , None ,  d 
+Grilled Chicken Breast (1  each) , 160 ,  d 
+Linguine with Lemon-Garlic Shrimp , 210 ,  d 
+Meat Lover's Stromboli , 370 ,  d 
+Garden Vegetable Soup (6  fl oz) , 80 ,  d 
+Oatmeal Raisin Cookie , 120 ,  d 
+Classic Cheese Pizza , 340 ,  d 
+Flour Tortilla (1  each) , 90 ,  d 
+Fresh Orange , 45 ,  d 
+Hearty Lentil & Potato Soup (6  fl oz) , 60 ,  d 
+Cheeseburger Mac & Cheese Bowl , 660 ,  d 
+Grape Tomatoes , None ,  d 
+Yellow Basmati Rice , 150 ,  d 
+Hawaiian Pizza , 310 ,  d 
+New England Clam Chowder (6  fl oz) , 150 ,  d 
+Chopped Hard-Cooked Egg , None ,  d 
+Corn Tortilla (1  each) , 70 ,  d 
+Al Pastor , 100 ,  d 
+Balsamic Vinaigrette , None ,  d 
+Lomo Saltado , 250 ,  d 
+General Tso's Chicken , 190 ,  d 
+Plant-Based Meatball (1  each) , 50 ,  d 
+Rotini & Grilled Vegetable Salad , 120 ,  d 
+Crispy Cereal Bar , 160 ,  d 
+Chocolate Cake , 170 ,  d 
+Gnocchi Rose , 280 ,  d 
+Salsa Verde (1  fl oz) , 5 ,  d 
+Grilled Chicken Breast , 150 ,  d 
+Chocolate Pudding , None ,  d 
+Classic Hot Dog , 240 ,  d 
+Cauliflower Spaghetti Bowl , 410 ,  d 
+Minestrone Soup (6  fl oz) , 110 ,  d 
+Vegan Beef Taco , 130 ,  d 
+Spanish Rice , 100 ,  d 
+Lyonnaise Potatoes , 120 ,  d 
+Sugar Cookie , 120 ,  d 
+Garbanzo Beans , None ,  d 
+Vegan Chorizo Rice Bowl , 280 ,  d 
+American Cheese , None ,  d 
+NEW Chocolate Chip Pasuki , 290 ,  d 
+Baked Potato Wedges , 90 ,  d 
+Marinated Green Beans & Tomato , 45 ,  d 
+Sugar Cookie , 180 ,  d 
+Turkey a la King , 220 ,  d 
+Mushroom Pizza , 430 ,  d 
+Shredded Cheddar Cheese , None ,  d 
+Mexican Baked Fish , 80 ,  d 
+Vegan Pumpkin Bread , 370 ,  d 
+Chocolate Chip Cookie , 120 ,  d 
+Pepperoni Pizza , 370 ,  d 
+Roasted Brussels Sprouts with Garlic , 45 ,  d 
+Sweet & Sour Meatballs , 190 ,  d 
+Chipotle Shredded Beef , 170 ,  d 
+Steamed Summer Vegetable Blend , 15 ,  d 
+Ranch Dressing , None ,  d 
+Caribbean Jerk Pork Bowl , 780 ,  d 
+Salsa , None ,  d 
+Spring Salad Mix , None ,  d 
+Hearty Chicken Gumbo (6  fl oz) , 150 ,  d 
+Mexican Rice , 130 ,  d 
+Vegetable Fried Rice , 120 ,  d 
+Shredded Carrots , None ,  d 
+MADE-TO-ORDER, TOMATO, 5 X 6, SLICED 1/4", CUT IN HALF , None ,  d 
+White Rice , 40 ,  d 
+Angus Beef Patty (1  each) , 420 ,  d 
+Grilled Ancho Lime Steak , 180 ,  d 
+Mesquite BBQ Chicken , 160 ,  d 
+Cantaloupe , None ,  d 
+Chicken & Rice Soup , 110 ,  d 
+Spicy Tofu Vegetable Stir-Fry , 170 ,  d 
+Crispy Shoestring French Fries , 190 ,  d 
+Dinner Roll , 120 ,  d 
+Crispy Chicken Sandwich , 540 ,  d 
+Grilled Bratwurst , 300 ,  d 
+Crispy Homestyle French Fries , 140 ,  d 
+Chicken Tagine , 160 ,  d 
+Potato Salad , 160 ,  d 
+Glazed Sweet Potatoes , 140 ,  d 
+Oatmeal Raisin Cookie , 230 ,  d 
+Chicken Noodle Soup (6  fl oz) , 70 ,  d 
+Diced Pineapple , None ,  d 
+Cherry-Blueberry Crisp , 170 ,  d 
+Honeydew Melon , None ,  d 
+Croutons , None ,  d 
+Pineapple Chunks , None ,  d 
+Hearty Beef & Noodle Soup (6  fl oz) , 80 ,  d 
+Corn on the Cob , 45 ,  d 
+Chicken Tikka Masala Rice Bowl , 480 ,  d 
+Southwest Roasted Corn , 100 ,  d 
+Lettuce , None ,  d 
+Chocolate Brownie , 280 ,  d 
+Tikka Masala Tofu , 330 ,  d 
+Southwest Black Bean Soup (6  fl oz) , 100 ,  d 
+Banana , None ,  d 
+Tofu , None ,  d 
+Beef & Rice Soup (8  fl oz) , 80 ,  d 
+Romaine Lettuce , None ,  d 
+Pepperoni Pizza , 1190 ,  d 
+Gardenburger Black Bean Burger (1  each) , 110 ,  d 
+Crispy Chicken (4  piece) , 290 ,  d 
+Szechuan Tofu , 100 ,  d 
+Pepperoni Pizza , 420 ,  d 
+Iceberg Lettuce , None ,  d 
+Cheese Pizza , 1190 ,  d 
+Sautéed  Peppers and Onions , None ,  d 
+Garbanzo Beans , None ,  l 
+Classic Grilled Cheese , 320 ,  l 
+Cereal  Bars , 200 ,  l 
+Chocolate Chip Cookie , 240 ,  l 
+Pepperoni Pizza , 370 ,  l 
+Lemon-Pepper Shrimp , 45 ,  l 
+Pork Rib, Carrot, Potato & Tomato Soup , 190 ,  l 
+Lemon Wedges , 0 ,  l 
+Vegetable Medley , 45 ,  l 
+Vegan Bolognese , 530 ,  l 
+Cheese Tortellini with Mushroom Marinara , 300 ,  l 
+Ranch Dressing , None ,  l 
+Diced Chicken , None ,  l 
+Chicken Vegetable Soup , 100 ,  l 
+Garden Vegetable Soup (6  fl oz) , 80 ,  l 
+Chicken, Shrimp, Sausage Gumbo , 440 ,  l 
+Spring Salad Mix , None ,  l 
+Steamed Mixed Vegetables , 20 ,  l 
+Bloom Strawberry Vanilla Cake , 180 ,  l 
+Oatmeal Raisin Cookie , 120 ,  l 
+Korean Noodle Bowl , 350 ,  l 
+Shredded Carrots , None ,  l 
+Vegan Chick'N  Gumbo , 40 ,  l 
+Fresh Orange , 45 ,  l 
+Italian Vegetable Blend , 35 ,  l 
+New England Clam Chowder (6  fl oz) , 150 ,  l 
+Angus Beef Patty (1  each) , 420 ,  l 
+Chopped Hard-Cooked Egg , None ,  l 
+Chicken Parmesan Pizza , 290 ,  l 
+Balsamic Vinaigrette , None ,  l 
+Plant-Based Meatball (1  each) , 50 ,  l 
+Diced Turkey , None ,  l 
+Rotini & Grilled Vegetable Salad , 120 ,  l 
+Vegan Banana Cupcake , 330 ,  l 
+Chocolate Cake , 170 ,  l 
+White Chocolate Banana Pudding , 280 ,  l 
+Crispy Shoestring French Fries , 190 ,  l 
+Hummus , 330 ,  l 
+Crispy Chicken Sandwich , 540 ,  l 
+Vegetarian Baked Beans , 220 ,  l 
+Classic Hot Dog , 240 ,  l 
+Veggie Supreme Pizza , 340 ,  l 
+Tartar Sauce , 320 ,  l 
+Crispy Homestyle French Fries , 140 ,  l 
+Minestrone Soup (6  fl oz) , 110 ,  l 
+Oatmeal Raisin Cookie , 230 ,  l 
+Deli Ham , None ,  l 
+UCI Jello Parfait , 60 ,  l 
+Sugar Cookie , 120 ,  l 
+Diced Pineapple , None ,  l 
+American Cheese , None ,  l 
+Maple Mashed Sweet Potatoes , 120 ,  l 
+Rotini , 60 ,  l 
+Hearty Beef & Noodle Soup (6  fl oz) , 80 ,  l 
+White Rice , 120 ,  l 
+Sugar Cookie , 180 ,  l 
+Mushroom Pizza , 430 ,  l 
+Three Bean Soup , 150 ,  l 
+Shredded Cheddar Cheese , None ,  l 
+Brownie Cupcake , 140 ,  l 
+Vegan Lemon Rice Pudding , 160 ,  l 
+Lettuce , None ,  l 
+Chocolate Chip Cookie , 120 ,  l 
+Chocolate Brownie , 280 ,  l 
+OREO BROWNIE , 190 ,  l 
+Spaghetti with Meat Sauce , 400 ,  l 
+Turkey Spinach Wrap , 170 ,  l 
+Arrabiata Cheese Ravioli , 270 ,  l 
+Peri Peri Chicken , 470 ,  l 
+Grilled Spicy Lemon Chicken , 150 ,  l 
+Grilled Chicken Breast , 140 ,  l 
+Romaine Lettuce , None ,  l 
+Pulled BBQ Pork , 380 ,  l 
+Vegan Zucchini Bread , 250 ,  l 
+Pork Caldillo , 100 ,  l 
+Hummus , 340 ,  l 
+Deluxe Pizza , 410 ,  l 
+Pepperoni Pizza , 360 ,  l 
+Hawaiian Pizza , 290 ,  l 
+Brown Rice , 110 ,  l 
+Chik'n Paella , 120 ,  l 
+Cheddar-Chive Mashed Potatoes , 150 ,  l 
+Cantaloupe , None ,  l 
+Cream of Vegetable Soup , 140 ,  l 
+Chicken & Rice Soup , 110 ,  l 
+Dinner Roll , 120 ,  l 
+Chicken & Andouille Sausage Gumbo , 430 ,  l 
+Coconut Chia Pudding , 40 ,  l 
+Yankee Pot Roast , 230 ,  l 
+Dill Pickle Slices , None ,  l 
+Fish and Chips , 360 ,  l 
+Garden Vegetables , 15 ,  l 
+Sliced Green Bell Peppers , None ,  l 
+Potato Salad , 160 ,  l 
+Middle Eastern Falafel , 45 ,  l 
+Chicken Noodle Soup (6  fl oz) , 70 ,  l 
+Seasoned Rice , 50 ,  l 
+Cherry-Blueberry Crisp , 170 ,  l 
+Supreme Pizza , 450 ,  l 
+Breaded Chicken Breast (1  each) , 260 ,  l 
+Meatless Chick'n Stirfry , 170 ,  l 
+Garlic Breadstick , None ,  l 
+Honeydew Melon , None ,  l 
+Vegetable Soup (6  fl oz) , 70 ,  l 
+Cauliflower Lentil Curry , 220 ,  l 
+Harissa , 50 ,  l 
+Croutons , None ,  l 
+Pineapple Chunks , None ,  l 
+Hamburger , 310 ,  l 
+Cucumbers , None ,  l 
+Cookie & Brownie Pudding Parfait , 180 ,  l 
+Banana , None ,  l 
+Lite Italian Dressing , None ,  l 
+Chicken Fajita Pizza , 320 ,  l 
+Red Beans & Rice , 70 ,  l 
+Tofu , None ,  l 
+Cucumber Tomato Salad , 35 ,  l 
+Gardenburger Black Bean Burger (1  each) , 110 ,  l 
+Homestyle Spaghetti & Meatballs , 440 ,  l 
+Marinara Sauce , 25 ,  l 
+White Chocolate Banana Pudding , 480 ,  l 
+Beef & Broccoli Stir-Fry , 230 ,  l 
+Hearty Mashed Potatoes , 110 ,  l 
+Oreo(R) Brownie , 360 ,  l 
+Corn , None ,  l 
+Grilled Chicken Breast (1  each) , 160 ,  l 
+Chocolate Chip Cookie , 130 ,  l 
+Iceberg Lettuce , None ,  l 
+Fried Garlic Rice , 170 ,  l 
+Chicken Caesar Wrap , 590 ,  l 
+Grilled Vegetable Salad , 110 ,  l 
+Brownie  , 400 ,  l 
+Tuna Melt , 430 ,  l 
+Classic Cheese Pizza , 340 ,  l 
+Chocolate Brownie , 190 ,  l 
+Hearty Lentil & Potato Soup (6  fl oz) , 60 ,  l 
+Grape Tomatoes , None ,  l 
+Grilled Black Bean Burger , 280 ,  l 
+Granny Smith Apple , None ,  l 
+Beef, Pork & Turkey Burrito Bowl , 520 ,  l 
+Spicy Orange Chicken with Broccoli , 930 ,  l 
+Spaghetti , 110 ,  l 
+Gnocchi Alfredo , 310 ,  l 
+Tomato Wedges , None ,  l 
+Jasmine Rice , 130 ,  l 
+Beef Burrito Bowl , 400 ,  l 
+Chicken Alfredo Noodle Bowl , 440 ,  l 
+Chicken Noodle Soup (6  fl oz) , 90 ,  l 
+Vegan Rice Pudding , 150 ,  l 
+Sliced Red Onions , None ,  l 
+Garlic Toast , 150 ,  l 
+Classic Hot Dog , 190 ,  l 
+Tortellini Rose , 240 ,  l 
+Yellow Rice , 140 ,  l 
+Green Leaf Lettuce , None ,  l 
+Chocolate Pudding , None ,  l 
+Vegan Banana Cake , 260 ,  l 
+Glazed Carrots , 100 ,  l 
+Tomato Basil Soup (6  fl oz) , 130 ,  l 
+Baby Spinach , None ,  l 
+Sliced Tomatoes , None ,  l 
+Pork Chile Verde , 1180 ,  l 
+Pork Chili Verde , 120 ,  l 
+Hamburger Roll (1  each) , 140 ,  l 
+Roasted Curry Vegetables , 120 ,  l 
+Black Olives , None ,  l 
+Croutons , None ,  m 
+Hamburger , 350 ,  m 
+Romaine Lettuce , None ,  m 
+Al Pastor Pork Taco , 170 ,  m 
+Tomato Wedges , None ,  m 
+Nachos Con Queso , 500 ,  m 
+Baby Spinach , None ,  m 
+Spanish Rice , 100 ,  m 
+Black Olives , None ,  m 
+Cucumbers , None ,  m 
+Lite Italian Dressing , None ,  m 
+Ranch Dressing , None ,  m 
+Corn , None ,  m 
+Fire-Roasted Salsa , 15 ,  m 
+Shredded Carrots , None ,  m 
+Refried Beans ( 1/2 cup) , 160 ,  m 
+Balsamic Vinaigrette , None ,  m 
+Crispy Shoestring French Fries , 190 ,  m 
+Crispy Chicken Sandwich , 540 ,  m 
+Salsa Verde , 25 ,  m 
+Garbanzo Beans , None ,  m 
+Shredded Cheddar Cheese , None ,  m 
+Turkey Noodle Soup (6  fl oz) , 70 ,  m 
+Spring Salad Mix , None ,  m 
+Meatball Slider , 270 ,  m 
