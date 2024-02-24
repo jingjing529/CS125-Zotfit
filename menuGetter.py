@@ -6,12 +6,12 @@ def menuGetter(mode, location, period, date=datetime.now().strftime('%m/%d/%Y'))
     # Define the API endpoint and query parameters
     url = 'https://uci.campusdish.com/api/menu/GetMenus'
     params = {
-        'locationId': '3314',
+        'locationId': location,
         'storeIds': '',
         'mode': mode,
         'date': date,
         'time': '',
-        'periodId': '49',
+        'periodId': period,
         'fulfillmentMethod': ''
     }
 
@@ -24,7 +24,7 @@ def menuGetter(mode, location, period, date=datetime.now().strftime('%m/%d/%Y'))
         data = response.json()
         # Extract
         menu = data.get('Menu', {}).get('MenuProducts', [])
-
+        period_mapping = {'49': 'b', '106': 'l', '107': 'd', '108': 'm'}
         # Process
         for product in menu:
             product_info = product.get('Product', {})
@@ -35,7 +35,8 @@ def menuGetter(mode, location, period, date=datetime.now().strftime('%m/%d/%Y'))
                     [allergen for allergen, present in product_info.get('AvailableFilters', {}).items() if
                      present]),
                 'Calories': product_info.get('Calories'),
-                'Serving Size': f"{product_info.get('ServingSize')} {product_info.get('ServingUnit')}"
+                'Serving Size': f"{product_info.get('ServingSize')} {product_info.get('ServingUnit')}",
+                'Period': period_mapping.get(period, 'Unknown')
             }
             menu_items.append(item)
     else:
@@ -49,8 +50,25 @@ def menuGetter(mode, location, period, date=datetime.now().strftime('%m/%d/%Y'))
 
 
 # Example usage
-menu_items = menuGetter("daily", "3314", "108")
+
+menu_items = menuGetter("weekly", "3314", "108")
+menu_items.extend(menuGetter("weekly", "3314","49"))
+menu_items.extend(menuGetter("weekly", "3314","106"))
+menu_items.extend(menuGetter("weekly", "3314","107"))
+menu_items.extend(menuGetter("weekly", "3056","107"))
+menu_items.extend(menuGetter("weekly", "3056","49"))
+menu_items.extend(menuGetter("weekly", "3056","106"))
+menu_items.extend(menuGetter("weekly", "3056","108"))
+
+output = set()
+
 if menu_items:
+    for item in menu_items:
+        temp = (item['Name'], item['Calories'],item['Period'])
+        if temp not in output:
+            output.add(temp)
+
+if output:
     with open("menu_items.txt", "w") as file:
-        for item in menu_items:
-            file.write(f"{item['Name']} + {item['Calories']}\n")
+        for item in sorted(output, key=lambda x:x[2]):
+            file.write(f"{item[0]} , {item[1]} ,  {item[2]} \n")
