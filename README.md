@@ -73,7 +73,7 @@ npx expo start
 
 lkt user is temporary user from Jingjing's VScode, Jingjing just figured out that her pushes are anonymous.
 
-### Subpart
+### Database part (Cheng)
 #### How `menuGetter` Works
 
 The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the latest menu information for a specified dining hall and meal period (e.g., breakfast, lunch, dinner). It organizes this information into a user-friendly format, allowing Zotfit users to view meal options, nutritional information, and allergen warnings directly within the app.
@@ -90,6 +90,35 @@ The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the
      menu_items = menuGetter("daily", "3314", "107")
      ```
    - This call returns a list of menu items, each item containing details like name, description, allergens, calories, and serving size.
+4. **Creating MYSQL Database**:
+   - **Access MySQL**: Open your terminal or command prompt and log into MySQL as the root user by running `mysql -u root -p`. Enter your root password when prompted.
+   - **Create Database**: Once logged in, create the `menu_items` database with the command:
+     ```
+     CREATE DATABASE menu_items;
+     ```
+   - **Select Database**: Switch to the newly created database with the command:
+     ```
+     USE menu_items;
+     ```
+   - **Create Table**: Execute the following command to create the `food` table where menu items will be stored:
+     ```
+     CREATE TABLE food (
+         id INT AUTO_INCREMENT PRIMARY KEY,
+         name VARCHAR(255) NOT NULL,
+         calories VARCHAR(50),
+         meal_type VARCHAR(50) NOT NULL
+     );
+     ```
+   This setup prepares the MySQL environment to store menu data fetched by `menuGetter`.
+
+5. **Importing Data**:
+   Before running the import script, ensure you have `pymysql` installed in your Python environment. If not, install it using pip:
+   - **Configure the Script**: Open `mysqlIMPORT.py` with a text editor. Update the MySQL connection parameters (`user`, `password`, `db`) to match your setup. Also, ensure the file path to `menu_items.txt` is correct.
+   - **Run the Script**: Execute the script from your terminal or command line to import data into your MySQL database:
+  ```
+  python mysqlIMPORT.py
+  ```
+   The script reads menu data from `menu_items.txt` and inserts it into the `food` table, making it accessible to the Zotfit app for querying and display.
 
 #### How `recommendation` Works
 The `recommendation` module interacts with the OpenAI API to send the user's personal information and meal consumed today from the UCI dining hall. It fetches the recommendation into a user-friendly format, allowing Zotfit users to view their personal health recommendation directly within the app.
