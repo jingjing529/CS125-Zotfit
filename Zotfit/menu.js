@@ -8,8 +8,7 @@ const Menu = ({ navigation, route }) => {
 
   // Calculate total calories consumed
   const totalCaloriesConsumed = selectedFoods.reduce((totalCalories, food) => {
-    const [_, calories] = food.split(' + ');
-    return totalCalories + parseInt(calories, 10);
+    return totalCalories + parseInt(food.calories, 10);
   }, 0);
 
   useEffect(() => {
@@ -20,9 +19,13 @@ const Menu = ({ navigation, route }) => {
   const fetchMenuItems = async (mealType) => {
     try {
       // Fetch menu items from API or local file
-      const response = await fetch('http://localhost:3000/menu?mealType=${mealType}');
+      const response = await fetch(`http://localhost:3000/menu?mealType=${mealType}`);
       const menuItemsContent = await response.json();
-      setMenuItems(menuItemsContent.split('\n').map(line => line.trim()).filter(line => line !== ''));
+      const menuItems = menuItemsContent.map(item => ({
+        name: item.name,
+        calories: item.calories
+      }));
+      setMenuItems(menuItems);
     } catch (error) {
       console.error('Error fetching menu items:', error);
     }
@@ -37,24 +40,27 @@ const Menu = ({ navigation, route }) => {
       <Text style={styles.header}>Today's Menu</Text>
       <View style={styles.selectedFoodsContainer}>
         <Text style={styles.selectedFoodsHeader}>Food you consumed today:</Text>
-        {selectedFoods.filter(food => food.trim() !== '').map((food, index) => (
+        {selectedFoods.map((food, index) => (
           <View key={index} style={styles.selectedFoodItem}>
-            <Text>{food.split(' + ')[0]}</Text>
-            <Text>{food.split(' + ')[1].trim()}</Text>
+            <Text>{food.name}</Text>
+            <Text>{food.calories} Calories</Text>
           </View>
         ))}
         <Text style={styles.totalCalories}>Total Calories Consumed: {totalCaloriesConsumed}</Text>
       </View>
+      <View style={styles.menuTypesContainer}>
+        <Button title="Breakfast" onPress={() => fetchMenuItems('b')} />
+        <Button title="Lunch" onPress={() => fetchMenuItems('l')} />
+        <Button title="Dinner" onPress={() => fetchMenuItems('d')} />
+        <Button title="Midnight" onPress={() => fetchMenuItems('m')} />
+      </View>
       <View style={styles.menuItemsContainer}>
-        {menuItems.map((item, index) => {
-          const [food, calories] = item.split(' + ');
-          return (
+          {menuItems.map((item, index) => (
             <TouchableOpacity key={index} onPress={() => handleFoodClick(item)} style={styles.foodItem}>
-              <Text style={styles.foodName}>{food}</Text>
-              <Text style={styles.foodCalories}>{calories} Calories</Text>
+              <Text style={styles.foodName}>{item.name}</Text>
+              <Text style={styles.foodCalories}>{item.calories} Calories</Text>
             </TouchableOpacity>
-          );
-        })}
+          ))}
       </View>
       <Button title="Start Generating Recommendations" onPress={() => navigation.navigate('Recommendation', {selectedFoods, userInfo})} />
     </ScrollView>
@@ -103,6 +109,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginTop: 10,
+  },
+  menuTypesContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
   },
   menuItemsContainer: {
     width: '100%',
