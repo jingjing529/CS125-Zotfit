@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView } from 're
 const Menu = ({ navigation, route }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [selectedFoods, setSelectedFoods] = useState([]);
+  const [selectedMeal, setSelectedMeal] = useState('b');
   const { userInfo } = route.params;
 
   // Calculate total calories consumed
@@ -12,7 +13,6 @@ const Menu = ({ navigation, route }) => {
   }, 0);
 
   useEffect(() => {
-    // Fetch the content of menu_items.txt when the component mounts
     fetchMenuItems('b');
   }, []);
 
@@ -35,6 +35,11 @@ const Menu = ({ navigation, route }) => {
     setSelectedFoods(prevSelectedFoods => [...prevSelectedFoods, food]);
   };
 
+  const handleMealSelect = (mealType) => {
+    setSelectedMeal(mealType);
+    fetchMenuItems(mealType);
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.header}>Today's Menu</Text>
@@ -47,12 +52,14 @@ const Menu = ({ navigation, route }) => {
           </View>
         ))}
         <Text style={styles.totalCalories}>Total Calories Consumed: {totalCaloriesConsumed}</Text>
+        <Button title="Clear All" onPress={() => setSelectedFoods([])} />
+        <Button title="Start Generating Recommendations" onPress={() => navigation.navigate('Recommendation', {selectedFoods, userInfo, selectedMeal})} />
       </View>
       <View style={styles.menuTypesContainer}>
-        <Button title="Breakfast" onPress={() => fetchMenuItems('b')} />
-        <Button title="Lunch" onPress={() => fetchMenuItems('l')} />
-        <Button title="Dinner" onPress={() => fetchMenuItems('d')} />
-        <Button title="Midnight" onPress={() => fetchMenuItems('m')} />
+        <Button title="Breakfast" onPress={() => handleMealSelect('b')} />
+        <Button title="Lunch" onPress={() => handleMealSelect('l')} />
+        <Button title="Dinner" onPress={() => handleMealSelect('d')} />
+        <Button title="Midnight" onPress={() => handleMealSelect('m')} />
       </View>
       <View style={styles.menuItemsContainer}>
           {menuItems.map((item, index) => (
@@ -62,7 +69,6 @@ const Menu = ({ navigation, route }) => {
             </TouchableOpacity>
           ))}
       </View>
-      <Button title="Start Generating Recommendations" onPress={() => navigation.navigate('Recommendation', {selectedFoods, userInfo})} />
     </ScrollView>
   );
 };
