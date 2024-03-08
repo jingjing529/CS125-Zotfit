@@ -14,14 +14,14 @@ const Menu = ({ navigation, route }) => {
 
   useEffect(() => {
     // Fetch the content of menu_items.txt when the component mounts
-    fetchMenuItems();
+    fetchMenuItems('b');
   }, []);
 
-  const fetchMenuItems = async () => {
+  const fetchMenuItems = async (mealType) => {
     try {
       // Fetch menu items from API or local file
-      const response = await fetch('/Users/wangjingjing/CS125-Zotfit/menu_items.txt');
-      const menuItemsContent = await response.text();
+      const response = await fetch('http://localhost:3000/menu?mealType=${mealType}');
+      const menuItemsContent = await response.json();
       setMenuItems(menuItemsContent.split('\n').map(line => line.trim()).filter(line => line !== ''));
     } catch (error) {
       console.error('Error fetching menu items:', error);
