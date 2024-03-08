@@ -4,49 +4,34 @@ import OpenAI from 'openai';
 import anteaterIcon from './assets/peter.jpg';
 
 const Recommendation = ({ navigation, route }) => {
-  const { selectedFoods, userInfo } = route.params;
+  const { selectedFoods, userInfo, selectedMeal } = route.params;
   const [recommendation, setRecommendation] = useState('');
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (mealType) => {
       const openai = new OpenAI({
         apiKey: "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" // Add your OpenAI API key here
       });
+      
+      const findNextMeal = (selectedMeal) => {
+        const mealOrder = ['b', 'l', 'd', 'm'];
+        const currentIndex = mealOrder.indexOf(selectedMeal);
+        const nextIndex = (currentIndex + 1) % mealOrder.length;
+        return mealOrder[nextIndex];
+      };
 
       try {
+        const response = await fetch(`http://localhost:3000/menu?mealType=${findNextMeal(selectedMeal)}`);
+        const data = await response.json();
+        const foodList = data.map(item => `${item.name} + ${item.calories}`).join('\n');
+        console.log('selectedMeal:', selectedMeal);
         const prompt = `Given the foods the user consumed today: ${selectedFoods.join(", ")} and user details: ${JSON.stringify(userInfo)}, as well as user's energy information: activive energy is 190 cal today and walked a total of 11,107 steps, with a sleeping hour of 8hour 13min.
-                        Provide a specific meal recommendation with more than 3 items. Recommendations should be chosen from this list (the format of this list is food name + carories): 
-                        Assorted Donuts + 90
-                        Blueberry Muffin + 340
-                        Blueberry Scone + 150
-                        Breakfast Muffin + 400
-                        Cinnamon Roll + 130
-                        Danish Pastry + 120
-                        Vegan Zucchini Muffin + 220
-                        Cinnamon Brown Sugar Granola (6  fl oz) + 370
-                        Old Fashioned Oatmeal (6  fl oz) + 110
-                        Overnight Apples 'N' Oats (6  fl oz) + 190
-                        Overnight Strawberry Oats + 150
-                        Whipped Butter + 0
-                        Whipped Cream Cheese + 0
-                        French Toast + 1810
-                        Scrambled Eggs + 180
-                        Turmeric Tofu Scramble + 220
-                        Fresh Squeezed Orange Juice + 45
-                        Cottage Cheese + 0
-                        Nonfat Strawberry Yogurt + 0
-                        Nonfat Vanilla Greek Yogurt + 0
-                        Nonfat Vanilla Yogurt + 0
-                        Fresh Berries Cup + 30
-                        Orange Wedges + 0
-                        Raisins + 0
-                        Fresh Orange + 45
-                        Lyonnaise Potatoes + 120
-                        Pork Sausage Links + 240
-                        Turkey Sausage Patty + 90
-                        Please follow this format: 
-                        Hello <user name>. Based on your energy information and food consumed today, I recommend you to have <food name> ----- <calories> calories (with bullet points) for your next meal. This is a good choice because <reason>. You should also do some <sports> (use bullet points)today, <reasons>.
-                        `;
+                    Provide a specific meal recommendation with more than 3 items. Recommendations should be chosen from this list (the format of this list is food name + carories): 
+                    ${foodList}
+                    Please follow this format: 
+                    Hello <user name>. Based on your energy information and food consumed today, I recommend you to have <food name> ----- <calories> calories (with bullet points) for your next meal. This is a good choice because <reason>. You should also do some <sports> (use bullet points)today, <reasons>.
+                    `;
+
         const completion = await openai.chat.completions.create({
           model: "gpt-3.5-turbo",
           messages: [{ role: "user", content: prompt }],
@@ -64,6 +49,8 @@ const Recommendation = ({ navigation, route }) => {
 
     fetchData();
   }, [selectedFoods, userInfo]);
+
+  
 
 
   return (
