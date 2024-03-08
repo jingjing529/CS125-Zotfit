@@ -113,12 +113,27 @@ The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the
 
 5. **Importing Data**:
    Before running the import script, ensure you have `pymysql` installed in your Python environment. If not, install it using pip:
+   ```
+   pip install pymysql
+   ```
    - **Configure the Script**: Open `mysqlIMPORT.py` with a text editor. Update the MySQL connection parameters (`user`, `password`, `db`) to match your setup. Also, ensure the file path to `menu_items.txt` is correct.
    - **Run the Script**: Execute the script from your terminal or command line to import data into your MySQL database:
   ```
   python mysqlIMPORT.py
   ```
    The script reads menu data from `menu_items.txt` and inserts it into the `food` table, making it accessible to the Zotfit app for querying and display.
+
+6. **Run Backend**:
+   ```
+   npm install mysql@latest
+   node server.js
+   ```
+   If getting the error 'Client does not support authentication protocol requested by server; consider upgrading MySQL client', run below command and replace 'username' with your MySQL username and 'password' with your MySQL password.
+   ```
+   ALTER USER 'username'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+   ```
+   
+
 
 #### How `recommendation` Works
 The `recommendation` module interacts with the OpenAI API to send the user's personal information and meal consumed today from the UCI dining hall. It fetches the recommendation into a user-friendly format, allowing Zotfit users to view their personal health recommendation directly within the app.
@@ -136,3 +151,4 @@ The `recommendation` module interacts with the OpenAI API to send the user's per
 3. **Fetching Recommendation Data**:
    - Call `recommendation` with the user's personal information and selectedFoods.
    - This call returns a string of personal recommendations.
+
