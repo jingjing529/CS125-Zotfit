@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons'; // Import icons from Expo vector icons library
+import { MaterialIcons } from '@expo/vector-icons';
+import AppleHealthKit, {
+  HealthValue,
+  HealthKitPermissions,
+} from 'react-native-health';
 
-export default function InfoPage({ route, navigation }) {
+interface InfoPageProps {
+  route: {
+    params: {
+      name: string;
+      age: string;
+      gender: string;
+      height: string;
+      weight: string;
+    };
+  };
+  navigation: any; // Adjust the type according to your navigation setup
+}
+
+const InfoPage: FC<InfoPageProps> = ({ route, navigation }) => {
   const { name, age, gender, height, weight } = route.params;
 
   const caloriesBurned = 190;
@@ -126,3 +143,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+export default InfoPage;
