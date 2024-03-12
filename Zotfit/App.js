@@ -6,7 +6,7 @@ import MainScreen from './MainScreen';
 import InfoPage from './InfoPage';
 import Menu from './menu';
 import Recommendation from './recommendation.mjs';
-// Import the UCI Anteaters logo
+import ChooseMeal from './ChooseMeal';
 import UciLogo from './assets/Anteater-Chief.png';
 
 const Stack = createStackNavigator();
@@ -20,6 +20,7 @@ export default function App() {
         <Stack.Screen name="InfoPage" component={InfoPage} />
         <Stack.Screen name="Menu" component={Menu} />
         <Stack.Screen name="Recommendation" component={Recommendation} />
+        <Stack.Screen name="ChooseMeal" component={ChooseMeal} />
       </Stack.Navigator>
     </NavigationContainer>
   );

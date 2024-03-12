@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
+
+const backgroundImage = require('./assets/UCI_bg.jpg'); // Add your background image path
 
 const Menu = ({ navigation, route }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [selectedFoods, setSelectedFoods] = useState([]);
-  const [selectedMeal, setSelectedMeal] = useState('b');
-  const { userInfo } = route.params;
+  const { userInfo, selectedMeal } = route.params;
 
-  // Calculate total calories consumed
   const totalCaloriesConsumed = selectedFoods.reduce((totalCalories, food) => {
     return totalCalories + parseInt(food.calories, 10);
   }, 0);
 
   useEffect(() => {
-    fetchMenuItems('b');
+    fetchMenuItems(selectedMeal);
   }, []);
 
   const fetchMenuItems = async (mealType) => {
@@ -35,56 +35,78 @@ const Menu = ({ navigation, route }) => {
     setSelectedFoods(prevSelectedFoods => [...prevSelectedFoods, food]);
   };
 
-  const handleMealSelect = (mealType) => {
-    setSelectedMeal(mealType);
-    fetchMenuItems(mealType);
-  };
+  // Determine meal type title
+  let mealTypeTitle = '';
+  if (selectedMeal === 'b') {
+    mealTypeTitle = 'Breakfast';
+  } else if (selectedMeal === 'l') {
+    mealTypeTitle = 'Lunch';
+  } else if (selectedMeal === 'd') {
+    mealTypeTitle = 'Dinner';
+  } else if (selectedMeal === 'm') {
+    mealTypeTitle = 'Midnight Snack';
+  }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>Today's Menu</Text>
-      <View style={styles.selectedFoodsContainer}>
-        <Text style={styles.selectedFoodsHeader}>Food you consumed today:</Text>
-        {selectedFoods.map((food, index) => (
-          <View key={index} style={styles.selectedFoodItem}>
-            <Text>{food.name}</Text>
-            <Text>{food.calories} Calories</Text>
+    <ImageBackground source={backgroundImage} style={styles.background}>
+      <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.selectedFoodsHeader}>Food Consumed for <Text>{mealTypeTitle}</Text>: </Text>
+          <View style={styles.totalCaloriesContainer}>
+            <Text style={styles.totalCaloriesLabel}>Total Calories Consumed:</Text>
+            <Text style={styles.totalCaloriesValue}>{totalCaloriesConsumed}</Text>
           </View>
-        ))}
-        <Text style={styles.totalCalories}>Total Calories Consumed: {totalCaloriesConsumed}</Text>
-        <Button title="Clear All" onPress={() => setSelectedFoods([])} />
-        <Button title="Start Generating Recommendations" onPress={() => navigation.navigate('Recommendation', {selectedFoods, userInfo, selectedMeal})} />
-      </View>
-      <View style={styles.menuTypesContainer}>
-        <Button title="Breakfast" onPress={() => handleMealSelect('b')} />
-        <Button title="Lunch" onPress={() => handleMealSelect('l')} />
-        <Button title="Dinner" onPress={() => handleMealSelect('d')} />
-        <Button title="Midnight" onPress={() => handleMealSelect('m')} />
-      </View>
-      <View style={styles.menuItemsContainer}>
+        <View style={styles.selectedFoodsContainer}>
+          {selectedFoods.map((food, index) => (
+            <View key={index} style={styles.selectedFoodItem}>
+              <Text style={styles.selectedFoodName}>{food.name}</Text>
+              <Text style={styles.selectedFoodCalories}>{food.calories} Calories</Text>
+            </View>
+          ))}
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={() => setSelectedFoods([])}>
+              <Text style={styles.buttonText}>Clear All</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.button, { backgroundColor: '#002856' }]} // Change button color
+              onPress={() => navigation.navigate('Recommendation', { selectedFoods, userInfo, selectedMeal })}
+            >
+              <Text style={styles.buttonText}>Generate Recommendations</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <Text style={styles.header}><Text>{mealTypeTitle}</Text>'s Menu</Text>
+        <View style={styles.menuItemsContainer}>
           {menuItems.map((item, index) => (
             <TouchableOpacity key={index} onPress={() => handleFoodClick(item)} style={styles.foodItem}>
               <Text style={styles.foodName}>{item.name}</Text>
               <Text style={styles.foodCalories}>{item.calories} Calories</Text>
             </TouchableOpacity>
           ))}
-      </View>
-    </ScrollView>
+        </View>
+      </ScrollView>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
   container: {
     flexGrow: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     paddingVertical: 20,
     paddingHorizontal: 10,
     alignItems: 'center',
   },
   header: {
+    // marginTop: 40,
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#fff',
+    textAlign: 'center',
   },
   selectedFoodsContainer: {
     borderWidth: 1,
@@ -92,34 +114,70 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
     width: '100%',
+    backgroundColor: '#fff',
+    borderRadius: 10,
   },
   selectedFoodsHeader: {
-    fontSize: 18,
+    marginTop: 40,
+    fontSize: 26,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 20,
+    color: '#fff',
+    textAlign: 'center',
   },
   selectedFoodItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 5,
   },
-  foodName: {
+  selectedFoodName: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#333',
   },
-  foodCalories: {
+  selectedFoodCalories: {
     fontSize: 14,
     color: '#666',
   },
-  totalCalories: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 10,
-  },
-  menuTypesContainer: {
+  totalCaloriesContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    alignItems: 'center',
+    // marginTop: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    // backgroundColor: '#90A0C1',
+    borderRadius: 8,
+    marginBottom: 10,
+    color: '#002856',
+  },
+  totalCaloriesLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  totalCaloriesValue: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+  },  
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    },
+  button: {
+    backgroundColor: '#90A0C1',
+    borderRadius: 8,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+    marginBottom: 10,
+    marginTop: 10,
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
   },
   menuItemsContainer: {
     width: '100%',
@@ -136,6 +194,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f9f9f9',
   },
-});
-
-export default Menu;
+  foodName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+    foodCalories: {
+    fontSize: 14,
+    color: '#666',
+  },
+  });
+    
+  export default Menu;

@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+const backgroundImage = require('./assets/UCI_bg.jpg');
 interface InfoPageProps {
   route: {
     params: {
@@ -29,13 +30,13 @@ const InfoPage: FC<InfoPageProps> = ({ route, navigation }) => {
         write: ["Weight", "StepCount", "BodyMassIndex"]
     }
 };
-  AppleHealthKit.initHealthKit(options, (err: Object, res: Object) => {
-    if(err) {
-        console.log("error initializing healthkit: ", err);
-        return;
-    }
-    // healthkit initialized...
-  });
+  // AppleHealthKit.initHealthKit(options, (err: Object, res: Object) => {
+  //   if(err) {
+  //       console.log("error initializing healthkit: ", err);
+  //       return;
+  //   }
+  //   // healthkit initialized...
+  // });
 
   // const healthKitOptions = {
   //   permissions: {
@@ -75,6 +76,7 @@ const InfoPage: FC<InfoPageProps> = ({ route, navigation }) => {
   // })
 
   return (
+    <ImageBackground source={backgroundImage} style={styles.background}>
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('Main')}>
@@ -121,21 +123,28 @@ const InfoPage: FC<InfoPageProps> = ({ route, navigation }) => {
             <Text style={styles.infoText}>{sleepingHours}</Text>
           </View>
           {/* Button to navigate to Menu */}
-          <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Menu', { userInfo: { name, age, gender, height, weight } })}>
+          <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('ChooseMeal', { userInfo: { name, age, gender, height, weight } })}>
             <Text style={styles.menuButtonText}>Select Food Consumed</Text>
           </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   container: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    // backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     paddingVertical: 20,
   },
   headerContainer: {
@@ -157,6 +166,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#fff',
   },
   userInfo: {
     borderWidth: 1,
@@ -164,6 +174,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     width: '90%', // Adjust the width as needed
+    backgroundColor: '#ffffff',
   },
   infoRow: {
     flexDirection: 'row',
@@ -180,7 +191,7 @@ const styles = StyleSheet.create({
   },
   menuButton: {
     marginTop: 20,
-    backgroundColor: 'blue',
+    backgroundColor: '#002856',
     padding: 10,
     borderRadius: 5,
   },
