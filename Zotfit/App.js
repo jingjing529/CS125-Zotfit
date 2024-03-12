@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Image, Animated } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './MainScreen';
@@ -9,7 +9,10 @@ import Recommendation from './recommendation.mjs';
 import ChooseMeal from './ChooseMeal';
 import UciLogo from './assets/Anteater-Chief.png';
 
+
 const Stack = createStackNavigator();
+const backgroundImage = require('./assets/UCI_bg.jpg');
+
 
 export default function App() {
   return (
@@ -36,6 +39,7 @@ function HomeScreen({ navigation }) {
     }).start();
 
   return (
+    <ImageBackground source={backgroundImage} style={styles.background}>
     <View style={styles.container}>
       <Animated.Text
         style={[
@@ -60,23 +64,30 @@ function HomeScreen({ navigation }) {
       </TouchableOpacity>
       <Image source={UciLogo} style={styles.logo} />
     </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   title: {
     fontSize: 48,
     fontWeight: 'bold',
     marginBottom: 50,
+    color: '#fff',
   },
   startButton: {
-    backgroundColor: '#0077b5',
+    backgroundColor: '#90A0C1',
     paddingVertical: 15,
     paddingHorizontal: 40,
     borderRadius: 25,
