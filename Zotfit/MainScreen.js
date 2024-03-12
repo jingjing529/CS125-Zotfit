@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#fff',
     borderRadius: 5,
-    color: '#fff',
+    color: 'black',
     backgroundColor: '#fff',
   },
   genderContainer: {
