@@ -28,8 +28,13 @@ const Recommendation = ({ navigation, route }) => {
         const prompt = `Given the foods the user consumed today: ${selectedFoods.join(", ")} and user details: ${JSON.stringify(userInfo)}, as well as user's energy information: activive energy is 190 cal today and walked a total of 11,107 steps, with a sleeping hour of 8hour 13min.
                     Provide a specific meal recommendation with more than 3 items. Recommendations should be chosen from this list (the format of this list is food name + carories): 
                     ${foodList}
-                    Please follow this format: 
-                    Hello <user name>. Based on your energy information and food consumed today, I recommend you to have <food name> ----- <calories> calories (with bullet points) for your next meal. This is a good choice because <reason>. You should also do some <sports> (use bullet points)today, <reasons>.
+                    Please follow this format:
+
+                    First Paragraph(3-4 sentences max, make sure to have a title for the first paragraph like "Meal Recommendation" or "Food Recommendation" etc.): 
+                    Hello <user name>. Based on your energy information and food consumed today, I recommend you to have <food name> ----- <calories> calories (with bullet points) for your next meal. This is a good choice because <reason>.
+                    
+                    Second Paragraph(3-4 sentences max, make sure to have a title for the second paragraph like "Recommend Sports" or "Recommend Exercise" etc.):
+                    You should also do some <sports> (use bullet points)today, <reasons>.
                     `;
 
         const completion = await openai.chat.completions.create({
