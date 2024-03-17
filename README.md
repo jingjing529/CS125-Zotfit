@@ -69,11 +69,8 @@ nmp install
 npx expo start
 ```
 
-### Note
+### Database part
 
-lkt user is temporary user from Jingjing's VScode, Jingjing just figured out that her pushes are anonymous.
-
-### Database part (Cheng)
 #### How `menuGetter` Works
 
 The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the latest menu information for a specified dining hall and meal period (e.g., breakfast, lunch, dinner). It organizes this information into a user-friendly format, allowing Zotfit users to view meal options, nutritional information, and allergen warnings directly within the app.
@@ -91,6 +88,7 @@ The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the
      ```
    - This call returns a list of menu items, each item containing details like name, description, allergens, calories, and serving size.
 4. **Creating MYSQL Database**:
+
    - **Access MySQL**: Open your terminal or command prompt and log into MySQL as the root user by running `mysql -u root -p`. Enter your root password when prompted.
    - **Create Database**: Once logged in, create the `menu_items` database with the command:
      ```
@@ -109,7 +107,7 @@ The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the
          meal_type VARCHAR(50) NOT NULL
      );
      ```
-   This setup prepares the MySQL environment to store menu data fetched by `menuGetter`.
+     This setup prepares the MySQL environment to store menu data fetched by `menuGetter`.
 
 5. **Importing Data**:
    Before running the import script, ensure you have `pymysql` installed in your Python environment. If not, install it using pip:
@@ -118,10 +116,12 @@ The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the
    ```
    - **Configure the Script**: Open `mysqlIMPORT.py` with a text editor. Update the MySQL connection parameters (`user`, `password`, `db`) to match your setup. Also, ensure the file path to `menu_items.txt` is correct.
    - **Run the Script**: Execute the script from your terminal or command line to import data into your MySQL database:
-  ```
-  python mysqlIMPORT.py
-  ```
-   The script reads menu data from `menu_items.txt` and inserts it into the `food` table, making it accessible to the Zotfit app for querying and display.
+
+```
+python mysqlIMPORT.py
+```
+
+The script reads menu data from `menu_items.txt` and inserts it into the `food` table, making it accessible to the Zotfit app for querying and display.
 
 6. **Run Backend**:
    ```
@@ -132,10 +132,9 @@ The `menuGetter` function interacts with the UCI Campus Dish API to retrieve the
    ```
    ALTER USER 'username'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
    ```
-   
-
 
 #### How `recommendation` Works
+
 The `recommendation` module interacts with the OpenAI API to send the user's personal information and meal consumed today from the UCI dining hall. It fetches the recommendation into a user-friendly format, allowing Zotfit users to view their personal health recommendation directly within the app.
 
 #### Using `recommendation` in Zotfit
@@ -152,3 +151,10 @@ The `recommendation` module interacts with the OpenAI API to send the user's per
    - Call `recommendation` with the user's personal information and selectedFoods.
    - This call returns a string of personal recommendations.
 
+
+#### React-Native-Health Package
+We implemented react-native-health pacakge to interact with Apple HealthKit for iOS, specific requirements and docs can be found through this link: https://github.com/agencyenterprise/react-native-health
+
+### Note
+
+lkt user is temporary user from Jingjing's VScode, Jingjing just figured out that her pushes are anonymous.
