@@ -127,7 +127,7 @@ const InfoPage: FC<InfoPageProps> = ({ route, navigation }) => {
             <Text style={styles.infoText}>{weight}</Text>
           </View>
           <View style={styles.infoRow}>
-            <Text style={styles.infoTitle}>Calories Burned:</Text>
+            <Text style={styles.infoTitle}>Calories Burnt:</Text>
             <Text style={styles.infoText}>{caloriesBurned}</Text>
           </View>
           <View style={styles.infoRow}>
