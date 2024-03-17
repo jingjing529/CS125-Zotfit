@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import AppleHealthKit, { HealthValue, HealthKitPermissions } from 'react-native-health';
 const backgroundImage = require('./assets/UCI_bg.jpg');
 interface InfoPageProps {
   route: {
@@ -15,65 +16,12 @@ interface InfoPageProps {
   navigation: any; // Adjust the type according to your navigation setup
 }
 
-var AppleHealthKit = require('react-native-apple-healthkit');
-
 const InfoPage: FC<InfoPageProps> = ({ route, navigation }) => {
   const { name, age, gender, height, weight } = route.params;
   // const PERMS = AppleHealthKit.Constants.Permissions;
   const caloriesBurned = 190;
   const totalSteps = 11107;
   const sleepingHours = "8 h 13 min";
-
-  let options = {
-    permissions: {
-        read: ["Height", "Weight", "StepCount", "DateOfBirth", "BodyMassIndex"],
-        write: ["Weight", "StepCount", "BodyMassIndex"]
-    }
-};
-  // AppleHealthKit.initHealthKit(options, (err: Object, res: Object) => {
-  //   if(err) {
-  //       console.log("error initializing healthkit: ", err);
-  //       return;
-  //   }
-  //   // healthkit initialized...
-  // });
-
-  // const healthKitOptions = {
-  //   permissions: {
-  //       read:  [
-  //           PERMS.StepCount,
-  //           PERMS.Height,
-  //       ],
-  //   }
-  // };
-  
-  // const permissions = {
-  //   permissions: {
-  //     read: [AppleHealthKit.Constants.Permissions.HeartRate],
-  //     write: [AppleHealthKit.Constants.Permissions.Steps],
-  //   },
-  // } as HealthKitPermissions
-  
-  // AppleHealthKit.initHealthKit(permissions, (error: string) => {
-  //   /* Called after we receive a response from the system */
-  
-  //   if (error) {
-  //     console.log('[ERROR] Cannot grant permissions!')
-  //   }
-  
-  //   /* Can now read or write to HealthKit */
-  
-  //   const options = {
-  //     startDate: new Date(2020, 1, 1).toISOString(),
-  //   }
-  
-  //   AppleHealthKit.getHeartRateSamples(
-  //     options,
-  //     (callbackError: string, results: HealthValue[]) => {
-  //       /* Samples are now collected from HealthKit */
-  //     },
-  //   )
-  // })
 
   return (
     <ImageBackground source={backgroundImage} style={styles.background}>
@@ -122,9 +70,22 @@ const InfoPage: FC<InfoPageProps> = ({ route, navigation }) => {
             <Text style={styles.infoTitle}>Sleeping Hours:</Text>
             <Text style={styles.infoText}>{sleepingHours}</Text>
           </View>
-          {/* Button to navigate to Menu */}
-          <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('ChooseMeal', { userInfo: { name, age, gender, height, weight } })}>
-            <Text style={styles.menuButtonText}>Select Food Consumed</Text>
+          <TouchableOpacity style={styles.menuButton} onPress={() => 
+          navigation.navigate('ChooseMeal', { 
+            userInfo: { 
+              name, 
+              age, 
+              gender, 
+              height, 
+              weight 
+            }, 
+            liveinfo: { 
+              caloriesBurned, 
+              totalSteps, 
+              sleepingHours 
+            } 
+          })}>  
+          <Text style={styles.menuButtonText}>Select Food Consumed</Text>
           </TouchableOpacity>
         </View>
       </View>
