@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { View, Button, ImageBackground, TextInput, TouchableOpacity, StyleSheet, Text } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons'; // Import icons from Expo vector icons library
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 const backgroundImage = require('./assets/UCI_bg.jpg');
 
 export default function MainScreen({ navigation }) {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
-  const [gender, setGender] = useState(''); // Initialize gender state
+  const [gender, setGender] = useState(''); 
   const [feet, setFeet] = useState('');
   const [inches, setInches] = useState('');
   const [weight, setWeight] = useState('');
@@ -24,7 +24,6 @@ export default function MainScreen({ navigation }) {
     console.log('Height:', feet, 'feet', inches, 'inches');
     console.log('Weight:', weight, 'lbs');
 
-    // Navigate to InfoPage.js
     navigation.navigate('InfoPage', {
       name: name,
       age: age,

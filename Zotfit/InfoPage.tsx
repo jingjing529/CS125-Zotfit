@@ -13,83 +13,83 @@ interface InfoPageProps {
       weight: string;
     };
   };
-  navigation: any; // Adjust the type according to your navigation setup
+  navigation: any; 
 }
 
 const InfoPage: FC<InfoPageProps> = ({ route, navigation }) => {
   const { name, age, gender, height, weight } = route.params;
   // const PERMS = AppleHealthKit.Constants.Permissions;
-  const caloriesBurned = 190;
-  const totalSteps = 11107;
-  const heartRate = 74;
+  // const caloriesBurned = 190;
+  // const totalSteps = 11107;
+  // const heartRate = 74;
 
-  // const [caloriesBurned, setCaloriesBurned] = useState<number | null>(null);
-  // const [totalSteps, setTotalSteps] = useState<number | null>(null);
-  // const [heartRate, setHeartRate] = useState<number | null>(null);
+  const [caloriesBurned, setCaloriesBurned] = useState<number | null>(null);
+  const [totalSteps, setTotalSteps] = useState<number | null>(null);
+  const [heartRate, setHeartRate] = useState<number | null>(null);
 
-  // useEffect(() => {
-  //   const fetchHealthData = async () => {
-  //     const options = {
-  //       unit: 'bpm',
-  //       startDate: new Date().toISOString(),
-  //       endDate: new Date().toISOString(),
-  //       ascending: false, // Sort in descending order to get the latest value first
-  //       limit: 1, // Limit to only one sample
-  //     };
+  useEffect(() => {
+    const fetchHealthData = async () => {
+      const options = {
+        unit: 'bpm',
+        startDate: new Date().toISOString(),
+        endDate: new Date().toISOString(),
+        ascending: false,
+        limit: 1,
+      };
 
-  //     try {
-  //       const energyBurned = await getActiveEnergyBurned(options);
-  //       setCaloriesBurned(energyBurned);
+      try {
+        const energyBurned = await getActiveEnergyBurned(options);
+        setCaloriesBurned(energyBurned);
 
-  //       const stepsCount = await getStepCount(options);
-  //       setTotalSteps(stepsCount);
+        const stepsCount = await getStepCount(options);
+        setTotalSteps(stepsCount);
 
-  //       const hr = await getHeartRate(options);
-  //       setHeartRate(hr[0]?.value || null);
-  //     } catch (error) {
-  //       console.error('Error fetching health data:', error);
-  //     }
-  //   };
+        const hr = await getHeartRate(options);
+        setHeartRate(hr[0]?.value || null);
+      } catch (error) {
+        console.error('Error fetching health data:', error);
+      }
+    };
 
-  //   fetchHealthData();
-  // }, []);
+    fetchHealthData();
+  }, []);
 
-  // const getActiveEnergyBurned = async (options: any): Promise<number> => {
-  //   return new Promise((resolve, reject) => {
-  //     AppleHealthKit.getActiveEnergyBurned(options, (err: Object, results: HealthValue[]) => {
-  //       if (err) {
-  //         reject(err);
-  //       } else {
-  //         const energyBurned = results.reduce((total, sample) => total + sample.value, 0);
-  //         resolve(energyBurned);
-  //       }
-  //     });
-  //   });
-  // };
+  const getActiveEnergyBurned = async (options: any): Promise<number> => {
+    return new Promise((resolve, reject) => {
+      AppleHealthKit.getActiveEnergyBurned(options, (err: Object, results: HealthValue[]) => {
+        if (err) {
+          reject(err);
+        } else {
+          const energyBurned = results.reduce((total, sample) => total + sample.value, 0);
+          resolve(energyBurned);
+        }
+      });
+    });
+  };
 
-  // const getStepCount = async (options: any): Promise<number> => {
-  //   return new Promise((resolve, reject) => {
-  //     AppleHealthKit.getStepCount(options, (err: Object, results: HealthValue) => {
-  //       if (err) {
-  //         reject(err);
-  //       } else {
-  //         resolve(results.value);
-  //       }
-  //     });
-  //   });
-  // };
+  const getStepCount = async (options: any): Promise<number> => {
+    return new Promise((resolve, reject) => {
+      AppleHealthKit.getStepCount(options, (err: Object, results: HealthValue) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results.value);
+        }
+      });
+    });
+  };
 
-  // const getHeartRate = async (options: any): Promise<HealthValue[]> => {
-  //   return new Promise((resolve, reject) => {
-  //     AppleHealthKit.getHeartRateSamples(options, (err: Object, results: HealthValue[]) => {
-  //       if (err) {
-  //         reject(err);
-  //       } else {
-  //         resolve(results);
-  //       }
-  //     });
-  //   });
-  // };
+  const getHeartRate = async (options: any): Promise<HealthValue[]> => {
+    return new Promise((resolve, reject) => {
+      AppleHealthKit.getHeartRateSamples(options, (err: Object, results: HealthValue[]) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
+    });
+  };
 
   return (
     <ImageBackground source={backgroundImage} style={styles.background}>

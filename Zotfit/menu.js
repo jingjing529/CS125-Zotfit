@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
 
-const backgroundImage = require('./assets/UCI_bg.jpg'); // Add your background image path
+const backgroundImage = require('./assets/UCI_bg.jpg');
 
 const Menu = ({ navigation, route }) => {
   const [menuItems, setMenuItems] = useState([]);
@@ -18,7 +18,6 @@ const Menu = ({ navigation, route }) => {
 
   const fetchMenuItems = async (mealType) => {
     try {
-      // Fetch menu items from API or local file
       const response = await fetch(`http://localhost:3000/menu?mealType=${mealType}`);
       const menuItemsContent = await response.json();
       const menuItems = menuItemsContent.map(item => ({
@@ -67,7 +66,7 @@ const Menu = ({ navigation, route }) => {
               <Text style={styles.buttonText}>Clear All</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.button, { backgroundColor: '#002856' }]} // Change button color
+              style={[styles.button, { backgroundColor: '#002856' }]} 
               onPress={() => navigation.navigate('Recommendation', { selectedFoods, userInfo, liveinfo, selectedMeal })}
             >
               <Text style={styles.buttonText}>Generate Recommendations</Text>

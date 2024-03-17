@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, ImageBackground, Text, StyleSheet, Image } from 'react-native';
 import OpenAI from 'openai';
 import anteaterIcon from './assets/peter.jpg';
-import { MaterialIcons } from '@expo/vector-icons'; // Import icons from Expo vector icons library
+import { MaterialIcons } from '@expo/vector-icons'; 
 const backgroundImage = require('./assets/UCI_bg.jpg');
 
 
@@ -16,7 +16,7 @@ const Recommendation = ({ navigation, route }) => {
 
   const fetchData = async () => {
     const openai = new OpenAI({
-      apiKey: "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" // Add your OpenAI API key here
+      apiKey: "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" 
     });
     
     const findNextMeal = (selectedMeal) => {
@@ -131,14 +131,14 @@ const styles = StyleSheet.create({
   recommendationContainer: {
     // marginTop: 20,
     borderWidth: 1,
-    borderColor: '#fff', // Change the color as needed
+    borderColor: '#fff', 
     borderRadius: 10,
     padding: 10,
   },
   sectionContainer: {
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: '#fff', // Change the color as needed
+    borderColor: '#fff', 
     borderRadius: 10,
     padding: 10,
   },
