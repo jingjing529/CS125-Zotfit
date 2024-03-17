@@ -6,7 +6,7 @@ const backgroundImage = require('./assets/UCI_bg.jpg'); // Add your background i
 const Menu = ({ navigation, route }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [selectedFoods, setSelectedFoods] = useState([]);
-  const { userInfo, selectedMeal } = route.params;
+  const { userInfo, liveinfo, selectedMeal } = route.params;
 
   const totalCaloriesConsumed = selectedFoods.reduce((totalCalories, food) => {
     return totalCalories + parseInt(food.calories, 10);
@@ -68,7 +68,7 @@ const Menu = ({ navigation, route }) => {
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: '#002856' }]} // Change button color
-              onPress={() => navigation.navigate('Recommendation', { selectedFoods, userInfo, selectedMeal })}
+              onPress={() => navigation.navigate('Recommendation', { selectedFoods, userInfo, liveinfo, selectedMeal })}
             >
               <Text style={styles.buttonText}>Generate Recommendations</Text>
             </TouchableOpacity>
