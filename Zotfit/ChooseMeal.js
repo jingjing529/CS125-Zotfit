@@ -4,10 +4,11 @@ import { View, Text, ImageBackground, TouchableOpacity, StyleSheet } from 'react
 const backgroundImage = require('./assets/UCI_bg.jpg');
 
 const ChooseMeal = ({ navigation, route }) => {
-  const { userInfo } = route.params;
+  const { userInfo, liveinfo } = route.params;
+  console.log("live", liveinfo)
 
   const handleMealSelect = (mealType) => {
-    navigation.navigate('Menu', { userInfo, selectedMeal: mealType });
+    navigation.navigate('Menu', { userInfo, liveinfo, selectedMeal: mealType });
   };
 
   return (
