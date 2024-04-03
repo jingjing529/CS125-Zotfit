@@ -156,5 +156,5 @@ The `recommendation` module interacts with the OpenAI API to send the user's per
 We implemented react-native-health pacakge to interact with Apple HealthKit for iOS, specific requirements and docs can be found through this link: https://github.com/agencyenterprise/react-native-health
 
 ### Note
-
-lkt user is temporary user from Jingjing's VScode, Jingjing just figured out that her pushes are anonymous.
+Zotfit Demo:
+https://github.com/jingjing529/CS125-Zotfit/assets/104955830/25cb74c7-3564-42b7-825d-988ac9e83527
